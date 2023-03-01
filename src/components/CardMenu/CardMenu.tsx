@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { IconButton, Menu } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface Props {
-  onCardSelect: () => void;
+  children: any,
 }
 
 export const CardMenu: FC<Props> = (props) => {
-  const { onCardSelect } = props;
+  const { children } = props;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const ITEM_HEIGHT = 48;
@@ -29,6 +29,7 @@ export const CardMenu: FC<Props> = (props) => {
           right: 5,
           top: 5,
           color: 'black',
+          background: 'rgba(255, 255, 255, .3)',
         }}
         aria-label="more"
         id="long-button"
@@ -55,9 +56,7 @@ export const CardMenu: FC<Props> = (props) => {
           },
         }}
       >
-        <MenuItem onClick={onCardSelect}>
-          Add
-        </MenuItem>
+        {children}
       </Menu>
     </div>
   );

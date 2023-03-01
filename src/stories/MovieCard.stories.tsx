@@ -4,14 +4,14 @@ import { MovieCard } from '../components/MovieCard/MovieCard';
 import { movies } from './stub';
 
 export default {
-  title: 'Example/MovieCard',
+  title: 'Card/MovieCard',
   component: MovieCard,
 } as ComponentMeta<typeof MovieCard>;
 
 const Template: ComponentStory<typeof MovieCard> = (args) => <MovieCard {...args} />;
 
-export const Primary = Template.bind({});
+export const MainCard = Template.bind({});
 
-Primary.args = {
+MainCard.args = {
   movie: movies[0],
 };

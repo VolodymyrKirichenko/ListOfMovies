@@ -1,10 +1,10 @@
 import {
   Card,
   CardContent,
-  CardMedia,
+  CardMedia, MenuItem,
   Typography,
 } from '@mui/material';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { styled } from '@mui/material/styles';
 import { CardMenu } from '../CardMenu/CardMenu';
 import { Movie } from '../typeDefs/typedefs';
@@ -24,12 +24,16 @@ export const MovieCard: FC<Props> = (props) => {
   const { onCardSelect, movie } = props;
 
   return (
-    <Card sx={{ maxWidth: 180, position: 'relative' }}>
-      <CardMenu onCardSelect={onCardSelect} />
+    <Card sx={{ maxWidth: 200, height: 400, position: 'relative' }}>
+      <CardMenu>
+        <MenuItem onClick={onCardSelect}>
+          Add
+        </MenuItem>
+      </CardMenu>
 
       <CardMedia
         component="img"
-        height="250"
+        height="260"
         image={movie.image}
         alt={movie.title}
       />
@@ -39,7 +43,11 @@ export const MovieCard: FC<Props> = (props) => {
           {movie.title}
         </Typography>
 
-        <Typography variant="subtitle1" gutterBottom>
+        <Typography
+          variant="subtitle1"
+          sx={{ 'font-size': 12 }}
+          gutterBottom
+        >
           {movie.releaseDate}
         </Typography>
       </CardIndo>
